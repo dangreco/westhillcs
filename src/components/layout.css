@@ -1,4 +1,59 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+
+/* Spinner Stuff */
+.spinner {
+  animation: rotator 1.4s linear infinite;
+}
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+.spinnerPath {
+  stroke-dasharray: 187px;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation:
+  dash 1.4s ease-in-out infinite,
+  colors 5.6s ease-in-out infinite;
+}
+
+@keyframes colors {
+  0% { stroke: #4285F4; }
+  25% { stroke: #DE3E35; }
+  50% { stroke: #F7C223; }
+  75% { stroke: #1B9A59; }
+  100% { stroke: #4285F4; }
+}
+
+@keyframes dash {
+  0% { stroke-dashoffset: 187px; }
+  50% {
+    stroke-dashoffset: 46.75px;
+    transform:rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187px;
+    transform:rotate(450deg);
+  }
+}
+
+
+
+
+td {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+
+p, span, h1, h2, h3, td {
+  color: #282828 !important;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -508,6 +563,7 @@ th {
   font-weight: bold;
 }
 li {
+  font-family: "Roboto", sans-serif;
   margin-bottom: calc(1.45rem / 2);
 }
 ol li {
@@ -568,7 +624,6 @@ thead {
 }
 td,
 th {
-  text-align: left;
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
   font-feature-settings: "tnum";
   -moz-font-feature-settings: "tnum";
@@ -617,5 +672,12 @@ pre tt:after {
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+  }
+}
+
+@media screen and (max-width: 1320px) {
+  header, .Content {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

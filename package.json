@@ -13,10 +13,12 @@
     "gatsby-plugin-sharp": "^2.0.20",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-sharp": "^2.1.13",
+    "moment": "^2.24.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-slick": "^0.23.2"
   },
   "keywords": [
     "gatsby"
