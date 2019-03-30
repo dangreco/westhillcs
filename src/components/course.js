@@ -1,22 +1,33 @@
+/**
+ * This file holds the course component (see homepage for example).
+ */
+
 import React from "react";
 import { Link } from 'gatsby'
 import globals from '../globals';
 
-const Course = (props) => (
-    <div className="CourseCard" style={styles.card}>
-        <Link style={styles.cardLink} to={props.page}>
-            <div style={styles.container}>
-                <p style={styles.title}>{props.title}</p>
-                <p style={styles.desc}><i>{props.desc}</i></p>
-                {
-                    props.noBook ? (null) : (
-                        <a href={props.redirect} style={styles.link}>Textbook</a>
-                    )
-                }
+class Course extends React.Component {
+
+    render()
+    {
+        return (
+            <div className="CourseCard" style={styles.card}>
+                <Link style={styles.cardLink} to={this.props.page}>
+                    <div style={styles.container}>
+                        <p style={styles.title}>{this.props.title}</p>
+                        <p style={styles.desc}><i>{this.props.desc}</i></p>
+                        {
+                            this.props.noBook ? (null) : (
+                                <a href={this.props.redirect} style={styles.link}>Textbook</a>
+                            )
+                        }
+                    </div>
+                </Link>
             </div>
-        </Link>
-    </div>
-);
+        )
+    }
+
+}
 
 const styles = {
     card: {

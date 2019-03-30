@@ -1,8 +1,14 @@
+/**
+ * This component renders a table given table data.
+ */
+
 import React, { Component } from 'react'
 
-import colors from "../colors";
+import globals from "../globals";
+const { colors } = globals;
 
-export default class Table extends Component {
+class Table extends Component {
+
   render() {
 
     let { data } = this.props;
@@ -27,6 +33,7 @@ export default class Table extends Component {
       </div>
     )
   }
+
 }
 
 const styles = {
@@ -38,4 +45,6 @@ const styles = {
         borderRadius: 8,
         overflow: "hidden"
     }
-}
+};
+
+export default Table;

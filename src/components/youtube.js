@@ -1,4 +1,30 @@
+/**
+ * This component renders a YouTube video in the proper aspect ratio.
+ */
+
 import React from 'react';
+
+class YouTube extends React.Component {
+
+    render()
+    {
+        return (
+            <div style={{width: "100%", height: "100%", position: "static"}}>
+                <div style={styles.videoWrapper}>
+                    <iframe
+                        style={styles.video}
+                        width="560"
+                        height="349"
+                        src={this.props.source}
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    />
+                </div>
+            </div>
+        )
+    }
+
+}
 
 const styles = {
     videoWrapper: {
@@ -17,22 +43,6 @@ const styles = {
         width: "100%",
         height: "100%"
     }
-}
-
-const YouTube = (props) => (
-    <div style={{width: "100%", height: "100%", position: "static"}}>
-        <div style={styles.videoWrapper}>
-            <iframe
-                style={styles.video}
-                width="560" 
-                height="349"
-                src={props.source}
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            ></iframe>
-        </div>
-    </div>
-);
+};
 
 export default YouTube;

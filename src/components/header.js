@@ -1,5 +1,30 @@
+/**
+ *  This component is the header for the website containing the title and navbar.
+ */
+
 import React from "react"
 import { Link } from 'gatsby'
+
+class Header extends React.Component {
+
+    render()
+    {
+        return (
+            <header style={styles.header}>
+                <div style={styles.headerContainer}>
+                    <span style={styles.headerText}>Westhill CS</span>
+                    <div>
+                        <Link style={styles.link} activeStyle={styles.activeLink} to="/">Home</Link>
+                        <Link style={styles.link} activeStyle={styles.activeLink} to="/info">Info</Link>
+                        <Link style={styles.link} activeStyle={styles.activeLink} to="/news">News</Link>
+                        <Link style={styles.link} activeStyle={styles.activeLink} to="/resources">Resources</Link>
+                    </div>
+                </div>
+            </header>
+        )
+    }
+
+}
 
 const styles = {
     header: {
@@ -34,19 +59,4 @@ const styles = {
     }
 };
 
-const Header = () => (
-    <header style={styles.header}>
-        <div style={styles.headerContainer}>
-            <span style={styles.headerText}>Westhill CS</span>
-            <div>
-                <Link style={styles.link} activeStyle={styles.activeLink} to="/">Home</Link>
-                <Link style={styles.link} activeStyle={styles.activeLink} to="/info">Info</Link>
-                <Link style={styles.link} activeStyle={styles.activeLink} to="/news">News</Link>
-                <Link style={styles.link} activeStyle={styles.activeLink} to="/resources">Resources</Link>
-            </div>
-        </div>
-    </header>
-);
-
-
-export default Header
+export default Header;

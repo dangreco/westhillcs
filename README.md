@@ -1,96 +1,123 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# Westhill CS
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+### Getting Started
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+You'll need **Node.js** and the **Gatsby CLI** in order to work on a development version of this website.
 
-## 🚀 Quick start
+1. Install Node.js
 
-1.  **Create a Gatsby site.**
+I recommend using **nvm** to install Node.js:
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+To install or update nvm, you can use the install script using cURL:
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+```
+or Wget:
+```
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+```
 
-    ```sh
-    # create a new Gatsby site using the default starter
-    npx gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+2. Install the Gatsby CLI
 
-1.  **Start developing.**
+Install the Gatsby CLI using npm:
 
-    Navigate into your new site’s directory and start it up.
+```
+npm i -g gatsby-cli
+```
 
-    ```sh
-    cd my-default-starter/
-    gatsby develop
-    ```
+### Starting the Development Server
 
-1.  **Open the source code and start editing!**
+To start the dev server, first ensure you are in the root directory of the project. Then enter the following:
 
-    Your site is now running at `http://localhost:8000`!
+```
+gatsby develop
+```
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+The development server will (most likely) be hosted at **localhost:8000/**, but check the server logs via the terminal to ensure this.
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+### Project Structure
 
-## 🧐 What's inside?
+- **./src/components**: Contains all of the "widgets" to be reused on the webite.
+- **./src/data**: Contains all of the table data for the website.
+- **./src/images**: This directory contains every image to be used throughout the website.
+- **./src/pages**: The actual web pages -- the url is taken from the file name (e.g. "localhost:8000/info" routes to "./src/pages/info.js"). 
+Subdirectories will be processed as sub-pages (e.g. "localhost:8000/courses/csa" routes to "./src/pages/courses/csa.js").
+- **./src/globals.js**: This file contains every global variable to be used throughout the website (e.g. colors, shadows, etc.)
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+### Creating a New Component
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+React components can be made as simply as follows:
+```javascript
+import React from 'react'
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+class ComponentName extends React.Component {
+    
+    constructor(props)
+    {
+        super(props);
+    }
+    
+    render()
+    {
+        return (
+            <div>
+                <p>{ this.props.dataVariableName }</p>
+            </div>
+        )
+    }
+    
+}
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+export default ComponentName;
+```
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+### Creating a New Page
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+To create a new page at the website root, simply create a new file in the **pages** directory with the file name corresponding to the proper route (see **Project Structure** for more details on this).
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+**All** pages (**not** widgets/basic components) must have the following render setup:
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+```javascript
+(
+    <Layout>
+        <SEO title="Page Title" keywords={[`gatsby`, `application`, `react`]} />
+        <Content>
+        
+            /* This is where you put the page content! */
+            
+        </Content>
+    </Layout>
+)
+```
+For further clarification, reference any of the existing pages.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+### Building
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+To build this project into its production state, run the following command:
+```
+gatsby build
+```
+This will create a build directory containing static HTML, JavaScript, and CSS files. 
+This can then be uploaded to the webserver.
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+### Style Guidlines
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+Just follow these general rules for consistency:
 
-## 🎓 Learning Gatsby
+```javascript
+/* Proper spacing before and after assignment operator */
+let x = 10;
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+/* Proper spacing on deconstruction */
+let { width, height } = size;
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+/* Function brackets start on the next line. */
+function f() 
+{
+  
+}
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+/* Use only multiline comments -- single line looks messy! */
+```

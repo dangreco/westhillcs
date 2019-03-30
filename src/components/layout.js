@@ -8,7 +8,7 @@ class Layout extends React.Component {
 
   constructor(props)
   {
-    super();
+    super(props);
     this.props = props;
     this.state = {
       height: 0,
@@ -26,17 +26,37 @@ class Layout extends React.Component {
     });
   }
 
-  render()
+  /**
+   * Determines the number of colored background shapes to use based on the height of the page.
+   * @param height => the height of the page.
+   * @returns {number} => the number of shapes to generate.
+   */
+  static getNumShapes(height)
   {
-    
-    let numberOfShapes = Math.round((this.state.height - 500) / 860);
-    numberOfShapes = numberOfShapes < 0 ? 0 : numberOfShapes;
+    let numberOfShapes = Math.round((height - 500) / 860);
+    return numberOfShapes < 0 ? 0 : numberOfShapes;
+  }
+
+  /**
+   * Generates n shapes given the number of shapes to generate.
+   * @param numShapes => the number of shapes to generate.
+   * @returns {Array} => the shape components in an array.
+   */
+  static getShapes(numShapes)
+  {
     let shapes = [];
-    for (let i = 0; i < numberOfShapes; ++i) {
+    for (let i = 0; i < numShapes; ++i) {
       shapes.push(
-        i % 2 !== 0 ? <Shape color="purple" /> : <Shape color="gold" />
+          i % 2 !== 0 ? <Shape color="purple" /> : <Shape color="gold" />
       );
     }
+    return shapes;
+  }
+
+  render()
+  {
+    let numShapes = Layout.getNumShapes(this.state.height);
+    let shapes =  Layout.getShapes(numShapes);
 
     return (
       <div ref={(ref) => this.rootContainer = ref}>
@@ -51,4 +71,4 @@ class Layout extends React.Component {
 
 }
 
-export default Layout
+export default Layout;

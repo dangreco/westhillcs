@@ -1,12 +1,10 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import Content from "../../components/content";
 import Section from "../../components/section";
 import Spinner from "../../components/spinner";
-var moment = require('moment');
+let moment = require('moment');
 
 export default class Post extends  React.Component {
 
@@ -63,7 +61,7 @@ export default class Post extends  React.Component {
                             this.state.post === undefined ? (null) : (
                                 <div>
                                     <p style={{fontFamily: "Roboto", fontSize: 14}}><i>Posted {moment(this.state.post.timestamp).format("MMMM Do YYYY")}</i></p>
-                                    <div style={{fontFamily: "Roboto", fontSize: 16}} dangerouslySetInnerHTML={{__html: this.state.post.content}}></div>
+                                    <div style={{fontFamily: "Roboto", fontSize: 16}} dangerouslySetInnerHTML={{__html: this.state.post.content}} />
                                 </div>
                             )
                         }

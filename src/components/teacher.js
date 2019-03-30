@@ -1,5 +1,26 @@
+/**
+ * This component renders a teacher's photo and name.
+ */
+
 import React from 'react';
 import globals from '../globals';
+
+class Teacher extends React.Component {
+
+    render()
+    {
+        return (
+            <div style={styles.container}>
+                <div style={{
+                    ...styles.picture,
+                    backgroundImage: `url('${this.props.source}')`
+                }}/>
+                <p style={styles.text}>{this.props.name}</p>
+            </div>
+        )
+    }
+
+}
 
 const styles = {
     container: {
@@ -16,7 +37,7 @@ const styles = {
         backgroundSize: "cover",
         backgroundPosition: "center",
         boxShadow: globals.shadow2
-    }, 
+    },
     text: {
         textAlign: "center",
         width: "100%",
@@ -26,15 +47,5 @@ const styles = {
         fontFamily: "Roboto"
     }
 };
-
-const Teacher = (props) => (
-    <div style={styles.container}>
-        <div style={{
-            ...styles.picture,
-            backgroundImage: `url('${props.source}')`
-        }}></div>
-        <p style={styles.text}>{props.name}</p>
-    </div>
-);
 
 export default Teacher;

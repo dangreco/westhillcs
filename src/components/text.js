@@ -1,8 +1,20 @@
+/**
+ * This component renders text in one of two styles: normal or big.
+ * TODO: Implement this component more.
+ */
+
 import React from 'react';
 
-const Text = (props) => (
-    <p style={props.big ? styles.bigText : styles.text}>{props.children}</p>
-);
+class Text extends React.Component {
+
+    render()
+    {
+        return (
+            <p style={this.props.big ? styles.bigText : styles.text}>{this.props.children}</p>
+        )
+    }
+
+}
 
 const styles = {
     text: {
@@ -18,6 +30,6 @@ const styles = {
         marginTop: 30,
         marginBottom: 60
     }
-}
+};
 
 export default Text;

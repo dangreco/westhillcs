@@ -1,11 +1,22 @@
-import React, { Component } from 'react'
+/**
+ * This component is a section -- it has a section title and content.
+ */
 
-const Section = (props) => (
-    <div style={{marginBottom: 60, position: "relative"}}>
-        <span style={styles.title}>{props.title}</span>
-        {props.children}
-    </div>
-);
+import React from 'react'
+
+class Section extends React.Component {
+
+    render()
+    {
+        return (
+            <div style={{marginBottom: 60, position: "relative"}}>
+                <span style={styles.title}>{this.props.title}</span>
+                {this.props.children}
+            </div>
+        )
+    }
+
+}
 
 const styles = {
     title: {
@@ -15,6 +26,6 @@ const styles = {
         marginBottom: 30,
         display: "block"
     }
-}
+};
 
 export default Section;
