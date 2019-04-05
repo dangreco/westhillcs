@@ -17,14 +17,6 @@ class IndexPage extends React.Component {
                 <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
                 <Content>
                     <Text big>Home of Westhill's Computer Science Program</Text>
-                    <Section title={"Meet Your Teachers"}>
-                        <LinearContainer>
-                            <Teacher name="Mr. Sarkar" source="http://westhillcs.com/img/sarkar.JPG" />
-                            <Teacher name="Ms. Tennent" source="http://westhillcs.com/img/tennent.jpg" />
-                            <Teacher name="Ms. Kurtz" source="http://westhillcs.com/img/kurtz.jpg" />
-                            <Teacher name="Mr. Temelini" source="http://westhillcs.com/img/temelini.jpg" />
-                        </LinearContainer>
-                    </Section>
                     <Section title={"Courses"}>
                         <LinearContainer>
                             <Course noBook title={"Web Design"} desc={"Website development using HTML/CSS."} />
@@ -36,6 +28,14 @@ class IndexPage extends React.Component {
                             <Course title={"AP CSP"} desc={"Mobile app development."} redirect={"https://course.mobilecsp.org/mobilecsp/course"} page={"/courses/csp"} />
                             <Course title={"AP CSA"} desc={"Java-based, object-oriented programming."} redirect={"https://csab373.appspot.com/apcsa/"} page={"/courses/csa"}/>
                             <Course title={"CS AB"} desc={"Advanced algorithms and data structures."} redirect={"https://csab373.appspot.com/first/course"} page={"/courses/csab"}/>
+                        </LinearContainer>
+                    </Section>
+                    <Section title={"Meet Your Teachers"}>
+                        <LinearContainer>
+                            <Teacher name="Mr. Sarkar" source="http://westhillcs.com/img/sarkar.JPG" />
+                            <Teacher name="Ms. Tennent" source="http://westhillcs.com/img/tennent.jpg" />
+                            <Teacher name="Ms. Kurtz" source="http://westhillcs.com/img/kurtz.jpg" />
+                            <Teacher name="Mr. Temelini" source="http://westhillcs.com/img/temelini.jpg" />
                         </LinearContainer>
                     </Section>
                 </Content>
