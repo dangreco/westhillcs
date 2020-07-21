@@ -48,24 +48,23 @@ Subdirectories will be processed as sub-pages (e.g. "localhost:8000/courses/csa"
 
 React components can be made as simply as follows:
 ```javascript
-import React from 'react'
+import React, {useState, useEffect} from 'react';
 
-class ComponentName extends React.Component {
+const ComponentName = (props) => {
+   
+    /* I'm a state variable! */
+    const [stateVar, setStateVar] = useState(/* Default value goes here! */);
     
-    constructor(props)
-    {
-        super(props);
-    }
+    useEffect(() => {
+        /* I'm called once when the component is mounted! */
+    }, []);
     
-    render()
-    {
-        return (
-            <div>
-                <p>{ this.props.dataVariableName }</p>
-            </div>
-        )
-    }
-    
+    return (
+        <div>
+            <p>{ props.dataVariableName }</p>
+        </div>
+    );
+ 
 }
 
 export default ComponentName;
